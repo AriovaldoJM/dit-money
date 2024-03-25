@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
-export const SummuryContainer = styled.section`
-     width: 100%;
+export const SummaryContainer = styled.section`
+    width: 100%;
     max-width: 1120px;
     margin: 0 auto;
     padding: 0 1.5rem;
@@ -13,10 +13,10 @@ export const SummuryContainer = styled.section`
     margin-top: -5rem;
 `
 
-interface SummuryCardProps {
+interface SummaryCardProps {
     variant?: 'green';
 }
-export const SummuryCard = styled.div<SummuryCardProps>`
+export const SummaryCard = styled.div<SummaryCardProps>`
     background: ${props => props.theme["gray-600"]};
     border-radius: 6px;
     padding: 2rem;
