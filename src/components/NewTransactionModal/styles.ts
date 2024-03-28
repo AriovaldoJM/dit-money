@@ -46,12 +46,16 @@ export const Content  = styled(DialogPrimitive.Content)`
             font-weight: bold;
             padding: 0 1.25rem;
             border-radius: 6px;
+            &:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
 
             margin-top: 1.5rem;
 
             cursor: pointer;
 
-            &:hover {
+            &:not(:disabled):hover {
                 background: ${props => props.theme["green-700"]};
                 transition: background-color 0.2s;
             }
