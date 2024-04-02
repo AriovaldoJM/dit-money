@@ -1,44 +1,48 @@
-import { MagnifyingGlass } from "phosphor-react";
-import { SearchFormContainer } from "./styles";
-import { useForm } from "react-hook-form";
-import * as z from 'zod';
-import {zodResolver} from '@hookform/resolvers/zod';
-import { useContext } from "react";
-import { TransactionsContext } from "../../context/TransactionsContex";
+import { MagnifyingGlass } from 'phosphor-react'
+import { SearchFormContainer } from './styles'
+import { useForm } from 'react-hook-form'
+import * as z from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { TransactionsContext } from '../../context/TransactionsContex'
+import { useContextSelector } from 'use-context-selector'
 
 const searchFormSchema = z.object({
-    query:z.string(),
+  query: z.string(),
 })
 
-type SearchFormInputs = z.infer<typeof searchFormSchema>;
-
+type SearchFormInputs = z.infer<typeof searchFormSchema>
 
 export function SearchForm() {
-    const {fecthTransactions} = useContext(TransactionsContext)
+  const fecthTransactions = useContextSelector(
+    TransactionsContext,
+    (context) => {
+      return context.fecthTransactions
+    },
+  )
 
-    const {
-        register, 
-        handleSubmit,
-        formState: {isSubmitting}
-    } = useForm<SearchFormInputs>({
-        resolver:zodResolver(searchFormSchema)
-    }) 
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm<SearchFormInputs>({
+    resolver: zodResolver(searchFormSchema),
+  })
 
-    async function handleSearchTransctions(data:SearchFormInputs) {
-        await fecthTransactions(data.query)
-    }
-    return (
-        <SearchFormContainer onSubmit={handleSubmit(handleSearchTransctions)}> 
-            <input 
-                type="text" 
-                placeholder="Busque por transações" 
-                {...register('query')}
-            />
+  async function handleSearchTransctions(data: SearchFormInputs) {
+    await fecthTransactions(data.query)
+  }
+  return (
+    <SearchFormContainer onSubmit={handleSubmit(handleSearchTransctions)}>
+      <input
+        type="text"
+        placeholder="Busque por transações"
+        {...register('query')}
+      />
 
-            <button type="submit" disabled={isSubmitting}>
-                <MagnifyingGlass size={20} />
-                Buscar
-            </button>
-        </SearchFormContainer>
-    )
+      <button type="submit" disabled={isSubmitting}>
+        <MagnifyingGlass size={20} />
+        Buscar
+      </button>
+    </SearchFormContainer>
+  )
 }

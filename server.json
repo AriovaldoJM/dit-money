@@ -1,31 +1,44 @@
 {
-    "transactions": [
-        {
-            "id": 1,
-            "description": "Desenvolvimento de site",
-            "type": "income",
-            "category": "Venda",
-            "price": 14000,
-            "createdAd": "2024-03-25T16:26:13.804Z"
-
-        },
-        {
-            "id": 2,
-            "description": "Hamburguer",
-            "type": "outcome",
-            "category": "Alimentação",
-            "price": 50,
-            "createdAd": "2024-03-25T16:20:13.804Z"
-
-        },
-        {
-            "id": 3,
-            "description": "Rockeseat",
-            "type": "outcome",
-            "category": "Educação",
-            "price": 1500,
-            "createdAd": "2024-03-25T16:24:13.804Z"
-
-        }
-    ]
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Desenvolvimento de site",
+      "type": "income",
+      "category": "Venda",
+      "price": 14000,
+      "createdAt": "2024-03-25T16:26:13.804Z"
+    },
+    {
+      "id": 2,
+      "description": "Hamburguer",
+      "type": "outcome",
+      "category": "Alimentação",
+      "price": 50,
+      "createdAt": "2024-03-25T16:20:13.804Z"
+    },
+    {
+      "id": 3,
+      "description": "Rockeseat",
+      "type": "outcome",
+      "category": "Educação",
+      "price": 1500,
+      "createdAt": "2024-03-25T16:24:13.804Z"
+    },
+    {
+      "description": "Desenvolvimento de API",
+      "price": 100,
+      "category": "venda",
+      "type": "income",
+      "createdAt": "2024-03-28T13:17:18.984Z",
+      "id": 4
+    },
+    {
+      "description": "Pizza",
+      "price": 80,
+      "category": "Alimentação",
+      "type": "outcome",
+      "createdAt": "2024-03-28T14:34:35.866Z",
+      "id": 5
+    }
+  ]
 }
